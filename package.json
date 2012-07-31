@@ -1,0 +1,13 @@
+{
+    "name": "columnizer",
+    "version": "0.0.1",
+    "author": "Henrik Joreteg <henrik@andyet.net>",
+    "description": "A text formatting utility for printing nice columns in terminal output.",
+    "dependencies": {
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/HenrikJoreteg/columnize.git"
+    },
+    "keywords": ["cli", "text", "columns"]
+}
