@@ -1,4 +1,4 @@
-var columnizer = require('./columnizer');
+var Columnizer = require('./columnizer');
 
 
 var stooges = [
@@ -8,7 +8,7 @@ var stooges = [
 ];
 
 // create an object to start with
-var example = columnizer.create();
+var example = new Columnizer;
 
 // call it's row method and pass in agruments
 // each subsequent argument is another column

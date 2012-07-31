@@ -1,6 +1,6 @@
 {
     "name": "columnizer",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "author": "Henrik Joreteg <henrik@andyet.net>",
     "description": "A text formatting utility for printing nice columns in terminal output.",
     "dependencies": {

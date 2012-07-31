@@ -7,34 +7,40 @@ function pad(string, target) {
 
 
 var Columnizer = function Columnizer() {
-    this.columns = [];
+    this.table = [];
 };
 
 Columnizer.prototype.row = function (args) {
-    this.columns.push(Array.prototype.slice.call(arguments, 0));
+    this.table.push(Array.prototype.slice.call(arguments, 0));
 };
 
 Columnizer.prototype.print = function (columnPadding) {
-    var padding = columnPadding || 5,
-        totalColumns = _.max(this.columns, function (item) { return item.length; }).length,
-        colWidths = [];
+    console.log(this.toString(columnPadding));
+};
 
-    this.columns.forEach(function (row) {
-        for (var i = 0, l = row.length; i < totalColumns; i++) {
-            colWidths[i] = ((colWidths[i] || 0) < row[i].length) ? row[i].length : colWidths[i];
-        }
+Columnizer.prototype.toString = function (columnPadding) {
+    var padding = columnPadding || 5,
+        totalColumns = _.max(this.table, function (item) { return item.length; }).length,
+        colWidths = [],
+        result = [];
+
+    // first we figure out what the max length is for each column
+    _.each(this.table, function (row, index) {
+        _.each(row, function (item, i) {
+            colWidths[i] = ((colWidths[i] || 0) < item.length) ? item.length : colWidths[i];
+        });
     });
 
-    for (var j = 0, l = this.columns.length; j < l; j++) {
-        for (var i = 0; i < totalColumns; i++) {
-            this.columns[j][i] = pad(this.columns[j][i], colWidths[i] + padding);
-        }
-        console.log(this.columns[j].join(''));
-    }
+    // now we can build our table
+    _.each(this.table, function (row, index) {
+        _.each(row, function (item, i) {
+            row[i] = pad(item, colWidths[i] + padding);
+        });
+        result.push(row.join(''));
+    });
+
+    return result.join('\n');
 };
 
-// our exports
-exports.Columnizer = Columnizer;
-exports.create = function (args) {
-    return new Columnizer(args);
-};
+// our export
+module.exports = Columnizer;
