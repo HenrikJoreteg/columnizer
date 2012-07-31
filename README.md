@@ -11,7 +11,7 @@ npm install columnizer
 
 ## How do I use it?
 ```js
-var columnizer = require('./columnizer');
+var columnizer = require('columnizer');
 
 
 var stooges = [
@@ -36,6 +36,14 @@ stooges.forEach(function (stooge) {
 
 // then when we're ready, just print it out:
 example.print();
+
+// will print this:
+/*
+Name     Height            Girth        
+Larry    short             skinny       
+Curly    medium or tall    skinny       
+Moe      tall              corpulent    
+*/
 
 ```
 
