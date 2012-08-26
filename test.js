@@ -23,3 +23,8 @@ stooges.forEach(function (stooge) {
 
 // then when we're ready, just print it out:
 example.print();
+
+// should be able to just add them.
+var example2 = new Columnizer(stooges);
+
+example2.print(10, true);
