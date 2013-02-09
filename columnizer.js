@@ -1,11 +1,15 @@
 var _ = require('underscore'),
     colors = require('colors');
 
-// pad
-function pad(string, target) {
-    return string + (new Array(target - string.length).join(' '));
+// remove terminal escape characters before returning length
+function len(string) {
+    return string.replace(/\033\[[0-9;]*m/g, '').length;
 }
 
+// pad
+function pad(string, target) {
+    return string + (new Array(target - len(string)).join(' '));
+}
 
 var Columnizer = function Columnizer(table) {
     var keys,
@@ -47,7 +51,7 @@ Columnizer.prototype._toString = function (columnPadding, headers) {
     _.each(this.table, function (row, index) {
         _.each(row, function (item, i) {
             var str = item.toString();
-            colWidths[i] = ((colWidths[i] || 0) < str.length) ? str.length : colWidths[i];
+            colWidths[i] = ((colWidths[i] || 0) < len(str)) ? len(str) : colWidths[i];
         });
     });
 
