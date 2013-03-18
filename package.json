@@ -4,7 +4,8 @@
     "author": "Henrik Joreteg <henrik@andyet.net>",
     "description": "A text formatting utility for printing nice columns in terminal output.",
     "dependencies": {
-        "underscore": ""
+        "underscore": "",
+        "colors": ""
     },
     "repository": {
         "type": "git",
