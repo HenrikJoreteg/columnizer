@@ -28,3 +28,5 @@ example.print();
 var example2 = new Columnizer(stooges);
 
 example2.print(10, true);
+
+console.log("example table has 4 rows: " + (example.length() === 4));

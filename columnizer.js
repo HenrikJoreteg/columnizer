@@ -41,6 +41,10 @@ Columnizer.prototype.print = function (columnPadding, headers) {
     console.log(this._toString(columnPadding, headers));
 };
 
+Columnizer.prototype.length = function () {
+    return this.table.length;
+};
+
 Columnizer.prototype._toString = function (columnPadding, headers) {
     var padding = columnPadding || 5,
         totalColumns = _.max(this.table, function (item) { return item.length; }).length,
