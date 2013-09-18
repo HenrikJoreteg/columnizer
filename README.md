@@ -47,6 +47,12 @@ Moe      tall              corpulent
 
 ```
 
+## Changelog
+
+**0.1.0**
+
+  - Adding length method
+
 ## Licence
 
 MIT
